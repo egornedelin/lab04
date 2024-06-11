@@ -1,0 +1,10 @@
+name: lab-actions
+run-name: ${{ github.actor }} is running Lab04
+on: [push]
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test project
+        run: cd hello_world_application && cmake -H. -B build && cmake --build build && cd ../solver_application && cmake -H. -B build && cmake --build build
